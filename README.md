@@ -1,6 +1,6 @@
 # Arithmetic Game for Obsidian
 
-A mental arithmetic practice plugin for [Obsidian](https://obsidian.md) that helps you improve your calculation speed and accuracy through customizable speed drills. Based on arithmetic.zetamac
+A mental arithmetic practice plugin for [Obsidian](https://obsidian.md) that helps you improve your calculation speed and accuracy through customizable speed drills. Based on [arithmetic.zetamac](https://arithmetic.zetamac.com/)
 
 ## Features
 
@@ -109,7 +109,7 @@ arithmetic-game-plugin/
 ## Acknowledgements
 
 - Built for the Obsidian to help practice mental arithmetic
-- 1005 inspired by [Arithmetic Zetamac]([https://obsidian.md](https://arithmetic.zetamac.com/))
+- 1005 inspired by [Arithmetic Zetamac](https://arithmetic.zetamac.com/)
 
 ---
 
