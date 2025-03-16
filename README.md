@@ -106,14 +106,10 @@ arithmetic-game-plugin/
 │       └── settingsTab.ts      # Settings tab UI
 ```
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgements
 
-- Built for the Obsidian community to help practice mental arithmetic
-- Inspired by classic mental math drills and games
+- Built for the Obsidian to help practice mental arithmetic
+- 1005 inspired by [Arithmetic Zetamac]([https://obsidian.md](https://arithmetic.zetamac.com/))
 
 ---
 
