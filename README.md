@@ -1,94 +1,120 @@
-# Obsidian Sample Plugin
+# Arithmetic Game for Obsidian
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+A mental arithmetic practice plugin for [Obsidian](https://obsidian.md) that helps you improve your calculation speed and accuracy through customizable speed drills. Based on arithmetic.zetamac
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## Features
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+- **Fast-paced arithmetic practice**: Solve as many problems as you can within a time limit
+- **Multiple operations**: Addition, subtraction, multiplication, and division
+- **Customizable difficulty**: Configure number ranges for each operation
+- **Performance tracking**: Detailed statistics and performance analysis
+- **Data visualization**: View your progress over time
+- **Export capabilities**: Export your results as CSV for external analysis
 
-## First time developing plugins?
+## Installation
 
-Quick starting guide for new plugin devs:
+### From Obsidian Community Plugins
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+1. Open Obsidian
+2. Go to Settings → Community plugins
+3. Turn off Safe mode if prompted
+4. Click "Browse" and search for "Arithmetic Game"
+5. Install the plugin and enable it
 
-## Releasing new releases
+### Manual Installation
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+1. Download the latest release from the GitHub repository
+2. Extract the zip file into your Obsidian vault's `.obsidian/plugins/` directory
+3. Enable the plugin in Obsidian's settings under Community Plugins
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+## Usage
 
-## Adding your plugin to the community plugin list
+### Starting a Game
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+1. Click the calculator icon in the ribbon menu, or
+2. Use the command palette (Ctrl+P) and search for "Open Arithmetic Game"
+3. Select which operations you want to practice
+4. Choose a duration
+5. Click "Start Game"
 
-## How to use
+### Playing the Game
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+1. A math problem will appear on screen
+2. Type your answer in the input field
+3. If correct, you'll automatically advance to the next problem
+4. If incorrect, you'll need to provide the correct answer before continuing
+5. The game ends when the timer runs out
 
-## Manually installing the plugin
+### Viewing Statistics
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+1. Click "View Statistics" on the game start or results screen, or
+2. Use the command palette and search for "Open Arithmetic Game Statistics"
+3. Browse your performance data across different tabs:
+   - **Overview**: Key metrics and recent performance
+   - **Game History**: Detailed history of all your games
+   - **Operations**: Performance breakdown by operation type
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+## Configuration
 
-## Funding URL
+### Game Settings
 
-You can include funding URLs where people who use your plugin can financially support it.
+- **Operations**: Enable/disable addition, subtraction, multiplication, and division
+- **Number Ranges**: Set minimum and maximum values for each operation
+- **Game Duration**: Set how long each game lasts (10-300 seconds)
+- **UI Settings**: Toggle dark mode, feedback messages, and problem history
+- **Analytics**: Configure data saving and export options
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+### Operation Settings
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
+For each operation, you can set custom ranges:
+
+- **Addition**: Configure the range of numbers to add
+- **Subtraction**: Configure minuends and subtrahends (always produces positive results)
+- **Multiplication**: Configure factors
+- **Division**: Configure quotients and divisors (always produces whole number results)
+
+## Data Storage
+
+The plugin stores two types of data:
+
+1. **Markdown Results**: Human-readable game results stored at the specified location in your vault
+2. **Structured Data**: JSON data used for statistics, stored in `.arithmetic_game/results.json`
+
+You can export data to CSV files for external analysis using the export button in the statistics view or via the command palette.
+
+## Development
+
+### Building the plugin
+
+1. Clone this repository
+2. Run `npm install`
+3. Run `npm run dev` to start the development build process
+
+### Project Structure
+
+```
+arithmetic-game-plugin/
+├── src/
+│   ├── main.ts                 # Plugin definition, initialization, commands
+│   ├── models/
+│   │   ├── settings.ts         # Settings interface and defaults
+│   │   └── gameResult.ts       # Game result data structures
+│   ├── views/
+│   │   ├── gameView.ts         # Game view implementation
+│   │   └── statsView.ts        # Statistics view implementation 
+│   └── settings/
+│       └── settingsTab.ts      # Settings tab UI
 ```
 
-If you have multiple URLs, you can also do:
+## License
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## API Documentation
+## Acknowledgements
 
-See https://github.com/obsidianmd/obsidian-api
+- Built for the Obsidian community to help practice mental arithmetic
+- Inspired by classic mental math drills and games
+
+---
+
+If you find any bugs or have feature requests, please file an issue on the GitHub repository.
